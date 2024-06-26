@@ -55,10 +55,17 @@ class Wp_Odoo_Form_Integrator_Ninja_Forms {
      * @since    1.0.0
      */
     public function get_all_forms(){
-        $all_forms = ninja_forms_get_all_forms();
-        foreach ( $all_forms as $form ) {
-            $result[] = array( 'id' => $form['id'], 'label' => $form['name'] );
+        $result = array();        
+        if (function_exists('Ninja_Forms')){
+            $f = Ninja_Forms()->form()->get_forms();
+            foreach ( $f as $form ) {
+            $result[] = array(
+              'id' => $form->get_id(),
+              'label' => $form->get_setting( 'title' )
+                );
+            }        
         }
+        
         return $result;
     }
 
@@ -68,10 +75,17 @@ class Wp_Odoo_Form_Integrator_Ninja_Forms {
      * @since    1.0.0
      */
     public function get_form_fields($form_id){
-        $form_fields = ninja_forms_get_fields_by_form_id( $form_id );
-        foreach ( $form_fields as $field ) {
-            $result[] = array( 'id' => $field["id"], 'label' => $field['data']['label'] );
-        }
+        $result = array();        
+        if (function_exists('Ninja_Forms')){
+            $f = Ninja_Forms()->form($form_id)->get_fields();
+            foreach ( $f as $field ) {
+                $result[] = array(
+                    'id' => $field->get_id(),
+                    'label' => $field->get_setting('label')
+                );
+            }        
+        }        
+        
         return $result;
     }
 
