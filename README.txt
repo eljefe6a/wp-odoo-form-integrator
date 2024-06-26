@@ -58,13 +58,11 @@ An example of how to use it:
 
 1. Install this plugin.
 
-2. Update the files as it is described above.
-
-3. Generate API key in the Odoo admin panel.
+2. Generate API key in the Odoo admin panel.
 Odoo admin panel -> Preferences (or My Profile icon at the right top corner)
 then open the Account Security tab, and click New API Key.
 
-4. Specify connection details on the configuration page of this plugin.
+3. Specify connection details on the configuration page of this plugin.
 WordPress dashboard -> WP Odoo Form Integrator -> Settings
 
 Example for localhost:
@@ -83,17 +81,17 @@ NOTE 2: if you are starting odoo from command line. It contains a line of how to
 ```
 INFO ? odoo.service.server: HTTP service (werkzeug) running on localhost:8069
 ```
-5. Click the “Test Authentication” button to check the connection (at the bottom of the configuration page of this plugin).
+4. Click the “Test Authentication” button to check the connection (at the bottom of the configuration page of this plugin).
 
-6. Download and install the Ninja Forms plugin:
+5. Download and install the Ninja Forms plugin:
 https://wordpress.org/plugins/ninja-forms/
 
-7. Create a form and add it to some wordpress page with a shortcode like:
+6. Create a form and add it to some wordpress page with a shortcode like:
 [ninja_form id=1]
 
-8. Check if the form appears on the front-end page.
+7. Check if the form appears on the front-end page.
 
-9. Register your form for this plugin.
+8. Register your form for this plugin.
 WordPress dashboard -> WP Odoo Form Integrator -> Add New
 
 Example:
@@ -109,7 +107,7 @@ email – Email
 
 Click the “Save Mapping” button a the bottom of the page.
 
-10. Open the form on the front-end and try to fill and submit it.
+9. Open the form on the front-end and try to fill and submit it.
 NOTE: if you are running odoo from command line. You should see lines like these:
 
 ```
@@ -120,7 +118,7 @@ INFO odoo17 werkzeug: 192.162.0.100 - - [16/Jan/2024 17:40:07] "POST /xmlrpc/2/o
 
 They mean that some script tried to access the odoo via API.
 
-11. Go to odoo admin panel. And try to find a new customer.
+10. Go to odoo admin panel. And try to find a new customer.
 You may need to activate the “Sales” odoo module.
 For me it is on the page:
 Odoo admin panel -> Invoicing -> Customers -> Customers
