@@ -140,12 +140,12 @@ class Wp_Odoo_Client {
 			$ret = $rclient->execute_kw($this->database, $this->get_uid(), 
 									   $this->password, 'ir.model', 'search', 
 									   array(array()));
-			if (!$ret[faultCode]){
+			if (!isset($ret['faultCode'])){
 				$ret = $rclient->execute_kw($this->database, $this->get_uid(), 
 										   $this->password, 'ir.model', 'read', 
     									   array($ret), 
     									   array('fields'=>array('model', 'name')));
-				if (!$ret[faultCode]){
+				if (!isset($ret['faultCode'])){
 					$ret['status'] = true;
 					return $ret;
 				}
@@ -171,7 +171,7 @@ class Wp_Odoo_Client {
 			$ret = $rclient->execute_kw($this->database, $this->get_uid(), 
 									   $this->password, $model, 'fields_get', 
 									   array(), array('attributes' => array('string', 'required', 'help', 'type')));
-			if (!$ret[faultCode]){
+			if (!isset($ret['faultCode'])){
 				$ret['status'] = true;
 			}else{
 				$ret['status'] = false;
